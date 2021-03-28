@@ -1,7 +1,7 @@
 """Users views."""
 
 # Django REST Framework
-from rest_framework import status, viewsets
+from rest_framework import status, viewsets, mixins
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
@@ -12,7 +12,10 @@ from users.serializers import UserLoginSerializer, UserModelSerializer, UserSign
 from users.models import User
 
 
-class UserViewSet(viewsets.GenericViewSet):
+class UserViewSet(mixins.ListModelMixin,
+                  viewsets.GenericViewSet,
+                  mixins.UpdateModelMixin,
+                  mixins.DestroyModelMixin):
 
     queryset = User.objects.filter(is_active=True)
     serializer_class = UserModelSerializer
@@ -35,3 +38,7 @@ class UserViewSet(viewsets.GenericViewSet):
         user = serializer.save()
         data = UserModelSerializer(user).data
         return Response(data, status=status.HTTP_201_CREATED)
+
+    def get_queryset(self):
+        queryset = User.objects.get_queryset()
+        return queryset
