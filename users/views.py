@@ -4,6 +4,7 @@
 from rest_framework import status, viewsets, mixins
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.filters import SearchFilter
 
 # Serializers
 from users.serializers import UserLoginSerializer, UserModelSerializer, UserSignUpSerializer
@@ -17,8 +18,15 @@ class UserViewSet(mixins.ListModelMixin,
                   mixins.UpdateModelMixin,
                   mixins.DestroyModelMixin):
 
+    filter_backends = (SearchFilter,)
     queryset = User.objects.filter(is_active=True)
     serializer_class = UserModelSerializer
+    search_fields = (
+        'name',
+        'gender',
+        'username',
+        'email',
+    )
 
     @action(detail=False, methods=['post'])
     def login(self, request):
