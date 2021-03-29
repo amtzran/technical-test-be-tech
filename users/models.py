@@ -8,7 +8,7 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ['username']
 
     name = models.CharField(max_length=255)
-    phone = models.CharField(null=False, max_length=11)
+    phone = models.CharField(null=False, max_length=15)
     gender = models.CharField(max_length=255)
     photo = models.ImageField(null=True, upload_to='users')
     created_at = models.DateTimeField(auto_now_add=True)
