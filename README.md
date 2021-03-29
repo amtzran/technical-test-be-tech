@@ -116,11 +116,10 @@ docker exec technical_test_be_tech_web_1 bash -c "python manage.py test"
 
 ## Despliegue 📦
 
-_Agrega notas adicionales sobre como hacer deploy_
+_Se encuentra alojado en Heroku por medio de contenedores_
+* [https://technical-test-be.herokuapp.com/](https://technical-test-be.herokuapp.com/)
 
 ## Construido con 🛠️
-
-_Menciona las herramientas que utilizaste para crear tu proyecto_
 
 * [Python 3.9](https://www.python.org/) - El lenguaje de backend.
 * [Django 3.1](https://www.djangoproject.com/) - El framework web usado.
