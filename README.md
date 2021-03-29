@@ -95,6 +95,13 @@ python manage.py createsuperuser
 exit
 ```
 
+## Documentación 📚
+
+_Documentación del estándar openapi Api Rest._
+
+* [Swagger](http://127.0.0.1:8000/)  ```http://127.0.0.1:8000/```
+* [Redoc](http://127.0.0.1:8000/redoc/) ```http://127.0.0.1:8000/redoc/```
+
 ## Ejecutando las pruebas ⚙️
 
 _Para ejecutar las pruebas unitarias:_
